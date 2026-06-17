@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Khairunnabilah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fbe394; 
+            color: #333333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+       
+        .navbar { 
+            margin-bottom: 40px; 
+            position: relative;
+            z-index: 1000;
+        }
+        .nav-links { list-style: none; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .nav-links li a {
+            text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase;
+            color: #ffffff; background-color: #ce2a2b; padding: 12px 28px; border-radius: 50px;
+            box-shadow: 0px 6px 12px rgba(206, 42, 43, 0.3); display: inline-block; transition: all 0.3s ease;
+        }
+        .nav-links li a:hover { 
+            background-color: #b32021; 
+            transform: translateY(-3px); 
+            box-shadow: 0px 8px 16px rgba(206, 42, 43, 0.4);
+        }
+        
+        .floral-bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .flower-cluster {
+            position: absolute;
+            display: block;
+        }
+
+     
+        .flower-top {
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            min-width: 600px;
+            height: auto;
+        }
+
+        
+        .flower-left {
+            top: 25%;
+            left: -50px;
+            width: 300px;
+            height: auto;
+        }
+
+        
+        .flower-bottom-right {
+            bottom: 0px;
+            right: 0px;
+            width: 380px;
+            height: auto;
+        }
+        
+       
+        .content-box {
+            border: 2px solid #ce2a2b;
+            max-width: 1200px; 
+            width: 100%;
+            padding: 40px;
+            background-color: rgba(251, 227, 148, 0.85); 
+            backdrop-filter: blur(6px);
+            position: relative;
+            z-index: 5; 
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .content-box h1 { 
+            font-family: 'Playfair Display', serif;
+            color: #ce2a2b; 
+            font-size: 3rem; 
+            font-weight: bold;
+            margin-bottom: 10px; 
+            text-align: center;
+            text-shadow: 2px 2px 0px #ffffff;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: #ce2a2b;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ce2a2b;
+            padding-bottom: 5px;
+        }
+        
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+       
+        .gallery-item {
+            border: 2px solid #ce2a2b;
+            padding: 10px 10px 20px 10px; 
+            background: #fff;
+            box-shadow: 4px 4px 0px #ce2a2b;
+            border-radius: 6px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 6px 8px 0px #ce2a2b;
+        }
+        
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 160px; 
+            object-fit: cover;
+            display: block;
+            border: 1px solid #eee;
+            background-color: #f0f0f0; 
+        }
+        
+        .gallery-caption {
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 10px;
+            color: #555555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+       
+        @media (max-width: 1024px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); } 
+        }
+        @media (max-width: 768px) {
+            .navbar { margin-bottom: 30px; }
+            .nav-links { gap: 8px; }
+            .nav-links li a { font-size: 11px; padding: 8px 16px; }
+            .content-box { padding: 20px; }
+            .content-box h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.4rem; margin-top: 30px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } 
+            .gallery-item { padding: 8px 8px 15px 8px; }
+            .gallery-item img, .gallery-item video { height: 120px; }
+
+           
+            .flower-top { width: 100%; top: 0px; }
+            .flower-left { width: 150px; left: -30px; opacity: 0.4; }
+            .flower-bottom-right { width: 180px; opacity: 0.4; }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="floral-bg-layer">
+        
+       
+        <svg class="flower-cluster flower-top" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 Q 400 -10, 750 20" stroke="#798e67" stroke-width="5" fill="none"/>
+            <path d="M200 15 Q 220 0, 240 20 Q 210 30, 200 15" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M550 20 Q 570 5, 590 25 Q 560 35, 550 20" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M400 5 C 360 5, 350 45, 400 55 C 450 45, 440 5, 400 5 Z" fill="#d26d7c" stroke="#ce2a2b" stroke-width="2"/>
+            <path d="M400 15 C 380 15, 375 40, 400 45 C 425 40, 420 15, 400 15 Z" fill="#eca1ad" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="400" cy="30" r="8" fill="#ebd27b" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="310" cy="35" r="22" fill="#eb9ca7" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="310" cy="35" r="10" fill="#fbc3cb"/>
+            <circle cx="490" cy="35" r="22" fill="#e593a0" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="490" cy="35" r="10" fill="#fbc3cb"/>
+        </svg>
+
+        
+        <svg class="flower-cluster flower-left" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <path d="M -10 50 Q 120 150, 0 280" stroke="#798e67" stroke-width="4" fill="none"/>
+            <path d="M 40 100 Q 80 90, 60 120 Z" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="45" fill="#c95a6c" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="40" cy="160" r="30" fill="#dc7c8d" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="15" fill="#ebd59b" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="70" cy="220" r="15" fill="#e09267" stroke="#ce2a2b" stroke-width="1.5"/>
+        </svg>
+
+       
+        <svg class="flower-cluster flower-bottom-right" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 260 260 Q 120 180, 180 0" stroke="#798e67" stroke-width="4" fill="none"/>
+            <circle cx="170" cy="160" r="50" fill="#cc6677" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="170" cy="160" r="35" fill="#de8595" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="170" cy="160" r="15" fill="#f5de7a" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="120" cy="80" r="25" fill="#e59758" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="120" cy="80" r="10" fill="#f2be8a"/>
+        </svg>
+    </div>
+
+    
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="work.html">Work Experience</a></li> 
+            <li><a href="education.html">Education</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-box">
+        <h1>My Gallery</h1>
+        
+        <h2 class="section-title">📸 Photos Collection</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="media/pic 1.jpg" alt="Photo 1"><div class="gallery-caption">Photo 1</div></div>
+            <div class="gallery-item"><img src="media/pic 2.jpg" alt="Photo 2"><div class="gallery-caption">Photo 2</div></div>
+            <div class="gallery-item"><img src="media/pic 3.jpg" alt="Photo 3"><div class="gallery-caption">Photo 3</div></div>
+            <div class="gallery-item"><img src="media/pic 4.jpg" alt="Photo 4"><div class="gallery-caption">Photo 4</div></div>
+            <div class="gallery-item"><img src="media/pic 5.jpg" alt="Photo 5"><div class="gallery-caption">Photo 5</div></div>
+            <div class="gallery-item"><img src="media/pic 6.jpg" alt="Photo 6"><div class="gallery-caption">Photo 6</div></div>
+            <div class="gallery-item"><img src="media/pic 7.jpg" alt="Photo 7"><div class="gallery-caption">Photo 7</div></div>
+            <div class="gallery-item"><img src="media/pic 8.jpg" alt="Photo 8"><div class="gallery-caption">Photo 8</div></div>
+            <div class="gallery-item"><img src="media/pic 9.jpg" alt="Photo 9"><div class="gallery-caption">Photo 9</div></div>
+            <div class="gallery-item"><img src="media/pic10.jpg" alt="Photo 10"><div class="gallery-caption">Photo 10</div></div>
+            <div class="gallery-item"><img src="media/pic11.jpg" alt="Photo 11"><div class="gallery-caption">Photo 11</div></div>
+            <div class="gallery-item"><img src="media/pic12.jpg" alt="Photo 12"><div class="gallery-caption">Photo 12</div></div>
+            <div class="gallery-item"><img src="media/pic13.jpg" alt="Photo 13"><div class="gallery-caption">Photo 13</div></div>
+            <div class="gallery-item"><img src="media/pic14.jpg" alt="Photo 14"><div class="gallery-caption">Photo 14</div></div>
+            <div class="gallery-item"><img src="media/pic15.jpg" alt="Photo 15"><div class="gallery-caption">Photo 15</div></div>
+            <div class="gallery-item"><img src="media/pic16.jpg" alt="Photo 16"><div class="gallery-caption">Photo 16</div></div>
+            <div class="gallery-item"><img src="media/pic17.jpg" alt="Photo 17"><div class="gallery-caption">Photo 17</div></div>
+            <div class="gallery-item"><img src="media/pic18.jpg" alt="Photo 18"><div class="gallery-caption">Photo 18</div></div>
+            <div class="gallery-item"><img src="media/pic19.jpg" alt="Photo 19"><div class="gallery-caption">Photo 19</div></div>
+            <div class="gallery-item"><img src="media/pic20.jpg" alt="Photo 20"><div class="gallery-caption">Photo 20</div></div>
+        </div>
+
+        <h2 class="section-title">🎥 Videos Collection</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <video src="media/video.mp4" controls></video>
+                <div class="gallery-caption">Video 1</div>
+            </div>
+            <div class="gallery-item">
+                <video src="media/video 2.mp4" controls></video>
+                <div class="gallery-caption">Video 2</div>
+            </div>
+            <div class="gallery-item">
+                <video src="media/video 3.mp4" controls></video>
+                <div class="gallery-caption">Video 3</div>
+            </div>
+            <div class="gallery-item">
+                <video src="media/video4.mp4" controls></video>
+                <div class="gallery-caption">Video 4</div>
+            </div>
+            <div class="gallery-item">
+                <video src="media/video5.mp4" controls></video>
+                <div class="gallery-caption">Video 5</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

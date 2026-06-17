@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Khairunnabilah</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=Poppins:wght=400;600;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fbe394; 
+            color: #ce2a2b; 
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            width: auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ffffff; 
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 12px 30px;
+            background-color: #ce2a2b; 
+            border-radius: 50px;
+            box-shadow: 0px 6px 12px rgba(206, 42, 43, 0.3); 
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav-links li a:hover {
+            background-color: #b32021; 
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 16px rgba(206, 42, 43, 0.4);
+        }
+
+        .main-scroll-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .floral-bg-layer {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 1; 
+            overflow: hidden;
+        }
+
+        .flower-cluster {
+            position: absolute;
+            display: block;
+        }
+
+        .flower-top {
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            min-width: 600px;
+            height: auto;
+        }
+
+        .flower-left {
+            top: 25%;
+            left: -50px;
+            width: 300px;
+            height: auto;
+        }
+
+        .flower-bottom-right {
+            bottom: 0px;
+            right: 0px;
+            width: 380px;
+            height: auto;
+        }
+
+        .green-section {
+            background: transparent; 
+            padding: 180px 5% 60px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+            position: relative;
+            z-index: 5;
+            width: 100%;
+        }
+
+        .about-block {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .about-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ce2a2b; 
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0px #fbe394;
+            min-height: 4.5rem;
+        }
+
+        .about-images-row {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .square-photo {
+            background: #ffffff;
+            padding: 10px;
+            border: 2px solid #ce2a2b; 
+            box-shadow: 4px 4px 0px #ce2a2b; 
+            border-radius: 4px;
+            transform: rotate(-3deg); 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            z-index: 20;
+        }
+
+        .about-images-row .square-photo:nth-child(2) {
+            transform: rotate(3deg);
+        }
+
+        .square-photo:hover {
+            transform: rotate(0deg) scale(1.08); 
+            box-shadow: 8px 10px 0px #ce2a2b; 
+        }
+
+        .square-photo img {
+            width: 220px;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-tape-text {
+            background-color: rgba(255, 255, 255, 0.95); 
+            color: #1a1a1a; 
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.8;
+            padding: 25px 35px;
+            border-radius: 4px;
+            box-shadow: 5px 6px 0px #ce2a2b; 
+            border: 2px solid #ce2a2b; 
+            max-width: 90%;
+            letter-spacing: 0.5px;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .fun-facts-block {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding-top: 40px;
+            border-top: 1px solid rgba(206, 42, 43, 0.2); 
+            position: relative;
+            z-index: 10;
+        }
+
+        .facts-left {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .facts-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ce2a2b; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .facts-paper {
+            background-color: rgba(255, 255, 255, 0.95); 
+            border: 2px solid #ce2a2b; 
+            box-shadow: 4px 4px 0px #ce2a2b; 
+            padding: 30px;
+            border-radius: 4px;
+        }
+
+        .facts-paper ul {
+            list-style: none;
+        }
+
+        .facts-paper li {
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.8;
+            color: #2b2b2b; 
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            border-bottom: 1px dashed rgba(206, 42, 43, 0.3); 
+            padding-bottom: 10px;
+        }
+
+        .facts-paper li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ce2a2b; 
+            font-size: 18px;
+        }
+
+        .facts-paper li:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .facts-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .round-photo {
+            background: #ffffff;
+            padding: 12px;
+            border: 2px solid #ce2a2b; 
+            border-radius: 50%;
+            box-shadow: 4px 6px 0px #ce2a2b; 
+            transform: scale(1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .round-photo:hover {
+            transform: scale(1.1) rotate(5deg); 
+            box-shadow: 6px 10px 0px #ce2a2b;
+        }
+
+        .round-photo img {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .family-block {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(206, 42, 43, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .family-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ce2a2b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .family-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .family-images {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .polaroid-photo {
+            background: #ffffff;
+            padding: 12px 12px 35px 12px; 
+            box-shadow: 5px 5px 0px #ce2a2b;
+            border-radius: 2px;
+            transform: rotate(4deg);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 20;
+        }
+
+        .family-images .polaroid-photo:nth-child(2) {
+            transform: rotate(-4deg);
+        }
+
+        .polaroid-photo:hover {
+            transform: rotate(0deg) scale(1.08);
+            box-shadow: 8px 12px 0px #ce2a2b;
+            z-index: 30;
+        }
+
+        .polaroid-photo img {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid #ddd;
+        }
+
+        .family-text-box {
+            flex: 1;
+            min-width: 320px;
+        }
+
+       
+        .hobby-block {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(206, 42, 43, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hobby-block h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ce2a2b;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .hobby-desc {
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .sunset-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+            justify-items: center;
+        }
+
+       
+        .sunset-grid .polaroid-photo:nth-child(1) { transform: rotate(-3deg); }
+        .sunset-grid .polaroid-photo:nth-child(2) { transform: rotate(2deg); }
+        .sunset-grid .polaroid-photo:nth-child(3) { transform: rotate(-1deg); }
+        .sunset-grid .polaroid-photo:nth-child(4) { transform: rotate(4deg); }
+        .sunset-grid .polaroid-photo:nth-child(5) { transform: rotate(-4deg); }
+        .sunset-grid .polaroid-photo:nth-child(6) { transform: rotate(3deg); }
+
+        .cream-section {
+            background-color: #fbe394; 
+            width: 100%;
+            padding: 80px 5%;
+            color: #ce2a2b; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-top: 2px solid #ce2a2b; 
+            position: relative;
+            z-index: 5;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { width: 95%; top: 20px; }
+            .nav-links { gap: 8px; flex-wrap: wrap; justify-content: center; }
+            .nav-links li a { font-size: 11px; padding: 8px 14px; }
+            .green-section { padding: 130px 20px 40px 20px; gap: 60px; }
+            .about-block h2, .facts-left h2, .family-block h2, .hobby-block h2 { font-size: 2.2rem; }
+            .square-photo img { width: 140px; height: 120px; }
+            .about-tape-text { font-size: 11px; padding: 15px; }
+            .fun-facts-block, .family-content { flex-direction: column; gap: 30px; text-align: center; }
+            .round-photo img { width: 180px; height: 180px; }
+            .polaroid-photo img { width: 160px; height: 160px; }
+            
+           
+            .sunset-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .polaroid-photo img { width: 140px; height: 140px; }
+
+            .flower-top { width: 100%; top: 0px; }
+            .flower-left { width: 150px; left: -30px; opacity: 0.5; }
+            .flower-bottom-right { width: 180px; opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floral-bg-layer">
+        <svg class="flower-cluster flower-top" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 Q 400 -10, 750 20" stroke="#798e67" stroke-width="5" fill="none"/>
+            <path d="M200 15 Q 220 0, 240 20 Q 210 30, 200 15" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M550 20 Q 570 5, 590 25 Q 560 35, 550 20" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M400 5 C 360 5, 350 45, 400 55 C 450 45, 440 5, 400 5 Z" fill="#d26d7c" stroke="#ce2a2b" stroke-width="2"/>
+            <path d="M400 15 C 380 15, 375 40, 400 45 C 425 40, 420 15, 400 15 Z" fill="#eca1ad" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="400" cy="30" r="8" fill="#ebd27b" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="310" cy="35" r="22" fill="#eb9ca7" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="310" cy="35" r="10" fill="#fbc3cb"/>
+            <circle cx="490" cy="35" r="22" fill="#e593a0" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="490" cy="35" r="10" fill="#fbc3cb"/>
+        </svg>
+
+        <svg class="flower-cluster flower-left" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <path d="M -10 50 Q 120 150, 0 280" stroke="#798e67" stroke-width="4" fill="none"/>
+            <path d="M 40 100 Q 80 90, 60 120 Z" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="45" fill="#c95a6c" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="40" cy="160" r="30" fill="#dc7c8d" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="15" fill="#ebd59b" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="70" cy="220" r="15" fill="#e09267" stroke="#ce2a2b" stroke-width="1.5"/>
+        </svg>
+
+        <svg class="flower-cluster flower-bottom-right" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 260 260 Q 120 180, 180 0" stroke="#798e67" stroke-width="4" fill="none"/>
+            <circle cx="170" cy="160" r="50" fill="#cc6677" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="170" cy="160" r="35" fill="#de8595" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="170" cy="160" r="15" fill="#f5de7a" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="120" cy="80" r="25" fill="#e59758" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="120" cy="80" r="10" fill="#f2be8a"/>
+        </svg>
+    </div>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="work.html">Work Experience</a></li> 
+            <li><a href="education.html">Education</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-scroll-container">
+        <section class="green-section">
+            <div class="about-block">
+                <h2>ABOUT ME:</h2>
+                <div class="about-images-row">
+                    <div class="square-photo">
+                        <img src="media/picture 1.jpg" alt="About Me Image 1">
+                    </div>
+                    <div class="square-photo">
+                        <img src="media/picture 2.jpg" alt="About Me Image 2">
+                    </div>
+                </div>
+                <div class="about-tape-text">
+                    "HELLO EVERYONE! MY NAME IS KHAIRUNNABILAH BINTI MOHAMAD DIN, BUT YOU CAN JUST CALL ME NABILAH. I’M 21 YEARS OLD THIS YEAR.
+                    IF YOU REALLY WANT TO KNOW ME, YOU HAVE TO KNOW THAT I AM A HUGE FOOD LOVER! 🍲 GROWING UP IN DIFFERENT PLACES LIKE [MELAKA] AND [NEGERI SEMBILAN] GAVE ME THE BEST OPPORTUNITY TO EXPLORE MALAYSIA THROUGH MY TASTEBUDS. I’VE TRIED ALL SORTS OF TRADITIONAL FOODS, AND HONESTLY, THAT’S HOW I CONNECT WITH PEOPLE AND MAKE SO MANY AMAZING FRIENDS!
+                    SO, IF YOU'RE LOOKING FOR A FOOD GUIDE OR A NEW FRIEND, I'M YOUR GIRL. LET’S EXPLORE A LITTLE MORE!"
+                </div>
+            </div>
+
+            <div class="fun-facts-block">
+                <div class="facts-left">
+                    <h2>FUN FACTS:</h2>
+                    <div class="facts-paper">
+                        <ul>
+                            <li>MY MOOD IS 100% DEPENDENT ON HOW GOOD MY PLAYLIST SOUNDS TODAY. NO MUSIC, NO LIFE!</li>
+                            <li>I HAVE A SUPERPOWER: I CAN REMEMBER THE LYRICS OF A SONG I HEARD ONCE, BUT I WILL FORGET WHY I OPENED THE REFRIGERATOR DOOR.</li>
+                            <li>A COFFEE OR ICED MATCHA A DAY KEEPS THE EXPENSES HIGH, BUT IT KEEPS MY PRODUCTIVITY HIGHER!</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="facts-right">
+                    <div class="round-photo">
+                        <img src="media/fun fact.jpg" alt="Fun Facts">
+                    </div>
+                </div>
+            </div>
+
+            <div class="family-block">
+                <h2>MY FAMILY:</h2>
+                <div class="family-content">
+                    <div class="family-images">
+                        <div class="polaroid-photo">
+                            <img src="media/family 2.jpg" alt="Family Photo 1">
+                        </div>
+                        <div class="polaroid-photo">
+                            <img src="media/family 3.jpg" alt="Family Photo 2">
+                        </div>
+                    </div>
+                    <div class="family-text-box">
+                        <div class="facts-paper">
+                            <ul>
+                                <li>FAMILY IS WHERE MY LIFE BEGINS AND LOVE NEVER ENDS. THEY ARE MY BIGGEST SUPPORT SYSTEM IN EVERYTHING I DO!</li>
+                                <li>WE SHARE A GENETIC LOVE FOR GOOD FOOD, MAKING EVERY WEEKEND FAMILY DINNER AN EXPERIMENT OF NEW RECIPES AND RESTAURANTS.</li>
+                                <li>BLESSED WITH THE LOUDEST LAUGHTER AND THE WARMEST HEARTS THAT ALWAYS KEEP ME GROUNDED.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="hobby-block">
+                <h2>MY HOBBY:</h2>
+                <div class="hobby-desc">
+                    "APART FROM BEING A FOOD LOVER, I HAVE A DEEP PASSION FOR PHOTOGRAPHY, ESPECIALLY CAPTURING THE BEAUTY OF SUNSETS. THERE IS SOMETHING MAGICAL ABOUT HOW THE SKY BLENDS INTO WARM SHADES OF GOLD, ORANGE, AND PURPLE. IT REMINDS ME THAT EVERY DAY CAN END BEAUTIFULLY."
+                </div>
+                
+                <div class="sunset-grid">
+                    <div class="polaroid-photo">
+                        <img src="media/hobby 1.jpg" alt="Sunset Photo 1">
+                    </div>
+                    <div class="polaroid-photo">
+                        <img src="media/hobby 2.jpg" alt="Sunset Photo 2">
+                    </div>
+                    <div class="polaroid-photo">
+                        <img src="media/hobby 3.jpg" alt="Sunset Photo 3">
+                    </div>
+                    <div class="polaroid-photo">
+                        <img src="media/hobby 4.jpg" alt="Sunset Photo 4">
+                    </div>
+                    <div class="polaroid-photo">
+                        <img src="media/hobby 5.jpg" alt="Sunset Photo 5">
+                    </div>
+                    <div class="polaroid-photo">
+                        <img src="media/hobby 6.jpg" alt="Sunset Photo 6">
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </div>
+
+    <script>
+        const titleElement = document.querySelector('.about-block h2');
+        const text = titleElement.innerText;
+        titleElement.innerText = ''; 
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                titleElement.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 150); 
+            }
+        }
+       
+        window.onload = typeWriter;
+
+        const elementsToClick = document.querySelectorAll('.square-photo, .round-photo, .polaroid-photo');
+        elementsToClick.forEach((el) => {
+            el.addEventListener('click', function() {
+                if (this.classList.contains('active-popup')) {
+                    this.classList.remove('active-popup');
+                } else {                    
+                    elementsToClick.forEach(item => item.classList.remove('active-popup'));
+                    this.classList.add('active-popup');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Khairunnabilah</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=Poppins:wght=400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fbe394;
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* --- NAVBAR --- */
+        .navbar { 
+            margin-bottom: 50px; 
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .nav-links { 
+            list-style: none; 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        
+        .nav-links li a {
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            color: #ffffff; 
+            background-color: #ce2a2b; 
+            border-radius: 50px;
+            padding: 12px 30px;
+            box-shadow: 0px 6px 12px rgba(206, 42, 43, 0.3); 
+            display: inline-block; 
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li a:hover { 
+            background-color: #b32021; 
+            transform: translateY(-3px); 
+            box-shadow: 0px 8px 16px rgba(206, 42, 43, 0.4);
+        }
+        
+        
+        .floral-bg-layer {
+            position: fixed; 
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 1; 
+            overflow: hidden;
+        }
+
+        .flower-cluster {
+            position: absolute;
+            display: block;
+        }
+
+        
+        .flower-top {
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            min-width: 600px;
+            height: auto;
+        }
+
+       
+        .flower-left {
+            top: 25%;
+            left: -50px;
+            width: 300px;
+            height: auto;
+        }
+
+        
+        .flower-bottom-right {
+            bottom: 0px;
+            right: 0px;
+            width: 380px;
+            height: auto;
+        }
+        
+        
+        .container {
+            max-width: 950px;
+            width: 100%;
+            position: relative;
+            z-index: 5; 
+        }
+        
+        .container h1 { 
+            font-family: 'Playfair Display', serif;
+            color: #ce2a2b; 
+            font-size: 3rem; 
+            font-weight: bold;
+            margin-bottom: 40px; 
+            letter-spacing: 1px;
+            text-align: center;
+            text-shadow: 2px 2px 0px #fbe394;
+        }
+        
+        .edu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+        
+       
+        .edu-card {
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 2px solid #ce2a2b;
+            box-shadow: 5px 6px 0px #ce2a2b; 
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(4px);
+        }
+
+        .edu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 8px 10px 0px #ce2a2b;
+        }
+        
+        .edu-info {
+            flex: 1;
+        }
+
+        .edu-info h3 { 
+            color: #ce2a2b; 
+            font-size: 22px; 
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .edu-info .institution {
+            font-size: 15px;
+            font-weight: 600;
+            color: #444444;
+            margin-bottom: 12px;
+        }
+
+        .edu-info .year { 
+            font-weight: 700; 
+            font-size: 12px; 
+            color: #ffffff; 
+            background-color: #ce2a2b; 
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+        }
+        
+        .edu-photo-frame {
+            background: #ffffff;
+            border: 2px solid #ce2a2b;
+            box-shadow: 3px 4px 0px #ce2a2b;
+            padding: 8px 8px 20px 8px; 
+            border-radius: 4px;
+            width: 140px;
+            text-align: center;
+            flex-shrink: 0;
+            transform: rotate(2deg);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: zoom-in;
+            position: relative;
+            z-index: 10;
+        }
+
+        .edu-card:nth-child(even) .edu-photo-frame {
+            transform: rotate(-2deg);
+        }
+
+        .edu-photo-frame:hover {
+            transform: rotate(0deg) scale(1.1);
+            box-shadow: 5px 8px 0px #ce2a2b;
+        }
+
+        .edu-photo-frame img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            background-color: #eee; 
+            display: block;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .photo-tag {
+            font-size: 10px;
+            font-weight: 700;
+            color: #666666;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .active-zoom {
+            transform: scale(1.4) rotate(0deg) !important;
+            z-index: 999 !important;
+            box-shadow: 0px 15px 30px rgba(0,0,0,0.3) !important;
+            cursor: zoom-out;
+        }
+        
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .navbar { width: 95%; margin-bottom: 30px; }
+            .nav-links { gap: 8px; }
+            .nav-links li a { font-size: 11px; padding: 8px 14px; }
+            .container h1 { font-size: 2.2rem; margin-bottom: 30px; }
+            .edu-card { flex-direction: column; text-align: center; padding: 20px; gap: 20px; }
+            .edu-photo-frame { transform: rotate(0deg) !important; width: 130px; }
+            .edu-photo-frame img { width: 112px; height: 112px; }
+
+            /* Skala bunga dikecilkan untuk paparan telefon */
+            .flower-top { width: 100%; top: 0px; }
+            .flower-left { width: 150px; left: -30px; opacity: 0.5; }
+            .flower-bottom-right { width: 180px; opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floral-bg-layer">
+        
+        <svg class="flower-cluster flower-top" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 Q 400 -10, 750 20" stroke="#798e67" stroke-width="5" fill="none"/>
+            <path d="M200 15 Q 220 0, 240 20 Q 210 30, 200 15" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M550 20 Q 570 5, 590 25 Q 560 35, 550 20" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M400 5 C 360 5, 350 45, 400 55 C 450 45, 440 5, 400 5 Z" fill="#d26d7c" stroke="#ce2a2b" stroke-width="2"/>
+            <path d="M400 15 C 380 15, 375 40, 400 45 C 425 40, 420 15, 400 15 Z" fill="#eca1ad" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="400" cy="30" r="8" fill="#ebd27b" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="310" cy="35" r="22" fill="#eb9ca7" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="310" cy="35" r="10" fill="#fbc3cb"/>
+            <circle cx="490" cy="35" r="22" fill="#e593a0" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="490" cy="35" r="10" fill="#fbc3cb"/>
+        </svg>
+
+        <svg class="flower-cluster flower-left" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <path d="M -10 50 Q 120 150, 0 280" stroke="#798e67" stroke-width="4" fill="none"/>
+            <path d="M 40 100 Q 80 90, 60 120 Z" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="45" fill="#c95a6c" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="40" cy="160" r="30" fill="#dc7c8d" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="15" fill="#ebd59b" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="70" cy="220" r="15" fill="#e09267" stroke="#ce2a2b" stroke-width="1.5"/>
+        </svg>
+
+        <svg class="flower-cluster flower-bottom-right" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 260 260 Q 120 180, 180 0" stroke="#798e67" stroke-width="4" fill="none"/>
+            <circle cx="170" cy="160" r="50" fill="#cc6677" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="170" cy="160" r="35" fill="#de8595" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="170" cy="160" r="15" fill="#f5de7a" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="120" cy="80" r="25" fill="#e59758" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="120" cy="80" r="10" fill="#f2be8a"/>
+        </svg>
+    </div>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="work.html">Work Experience</a></li> 
+            <li><a href="education.html">Education</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Education</h1>
+        
+        <div class="edu-grid">
+            
+            <div class="edu-card">
+                <div class="edu-info">
+                    <h3>Diploma in Information Management</h3>
+                    <div class="institution">Universiti Teknologi MARA (UiTM) Segamat</div>
+                    <div class="year">2024 - Present</div>
+                </div>
+                <div class="edu-photo-frame">
+                    <img src="media/logo uitm.png" alt="UiTM Segamat">
+                    <div class="photo-tag">UiTM Segamat</div>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <div class="edu-info">
+                    <h3>Pre-Diploma in Business</h3>
+                    <div class="institution">Universiti Teknologi MARA (UiTM) Lendu</div>
+                    <div class="year">2023</div>
+                </div>
+                <div class="edu-photo-frame">
+                    <img src="media/logo uitm.png" alt="UiTM Lendu">
+                    <div class="photo-tag">UiTM Lendu</div>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <div class="edu-info">
+                    <h3>Sijil Pelajaran Malaysia (SPM)</h3>
+                    <div class="institution">SMK Selandar</div>
+                    <div class="year">2018 - 2022</div>
+                </div>
+                <div class="edu-photo-frame">
+                    <img src="media/logo smk.jpg" alt="SMK Selandar">
+                    <div class="photo-tag">SMK Selandar</div>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <div class="edu-info">
+                    <h3>Ujian Pencapaian Sekolah Rendah (UPSR)</h3>
+                    <div class="institution">SK Serti Machap</div>
+                    <div class="year">2011 - 2017</div>
+                </div>
+                <div class="edu-photo-frame">
+                    <img src="media/logo sk.png" alt="SK Serti Machap">
+                    <div class="photo-tag">SK Serti Machap</div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <script>
+        const photoFrames = document.querySelectorAll('.edu-photo-frame');
+        photoFrames.forEach((frame) => {
+            frame.addEventListener('click', function() {
+                if (this.classList.contains('active-zoom')) {
+                    this.classList.remove('active-zoom');
+                } else {                    
+                    photoFrames.forEach(item => item.classList.remove('active-zoom'));
+                    this.classList.add('active-zoom');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Khairunnabilah</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=Poppins:wght=400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fce79a; 
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            z-index: 5;
+        }
+
+        .floral-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .flower-cluster {
+            position: absolute;
+        }
+
+      
+        .flower-top {
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65%;
+            min-width: 600px;
+            opacity: 0.95;
+        }
+
+        
+        .flower-left {
+            top: 15%;
+            left: -80px;
+            width: 32%;
+            min-width: 350px;
+            opacity: 0.9;
+        }
+
+        
+        .flower-bottom-right {
+            bottom: -30px;
+            right: -5px;
+            width: 40%;
+            min-width: 420px;
+            opacity: 0.95;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            width: auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ffffff; 
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 12px 30px;
+            background-color: #ce2a2b; 
+            border-radius: 50px;
+            box-shadow: 0px 6px 12px rgba(206, 42, 43, 0.3); 
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav-links li a:hover {
+            background-color: #b32021; 
+            transform: translateY(-3px);
+            box-shadow: 0px 8px 16px rgba(206, 42, 43, 0.4);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 10;
+            margin-top: 60px;
+            text-align: left;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.8rem; 
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #ce2a2b; 
+            
+            text-shadow: 
+                4px 4px 0px #fce79a, 
+                -2px -2px 0px #fce79a,  
+                 2px -2px 0px #fce79a,
+                -2px  2px 0px #fce79a,
+                 2px  2px 0px #fce79a,
+                0px 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-content p {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.8;
+            color: #1a1a1a;
+            max-width: 560px; 
+            background-color: rgba(253, 237, 175, 0.92); 
+            padding: 22px 28px;
+            border-radius: 12px;
+            border: 2px solid #ce2a2b;
+            box-shadow: 6px 6px 0px #ce2a2b; 
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(4px); 
+        }
+
+       
+        @media (max-width: 1024px) {
+            .flower-top { width: 80%; }
+            .flower-left { width: 35%; left: -100px; }
+            .flower-bottom-right { width: 45%; }
+            .hero-content h1 { font-size: 3.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { width: 92%; top: 20px; }
+            .nav-links { gap: 10px; flex-wrap: wrap; justify-content: center; }
+            .nav-links li a { font-size: 11px; padding: 8px 16px; }
+            .hero { 
+                padding: 0 5%; 
+                justify-content: center; 
+            }
+            .hero-content { text-align: center; margin-top: 140px; }
+            .hero-content h1 { font-size: 2.6rem; margin-bottom: 20px; }
+            .hero-content p { font-size: 12px; padding: 18px; text-align: justify; box-shadow: 4px 4px 0px #ce2a2b; }
+            
+           
+            .flower-top { width: 100%; top: -50px; }
+            .flower-left { width: 50%; opacity: 0.4; left: -80px; }
+            .flower-bottom-right { width: 60%; opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floral-bg">
+        
+       
+        <svg class="flower-cluster flower-top" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            <path d="M100,50 Q400,-20 700,50 Q550,120 400,40" stroke="#798e67" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M150,30 Q180,10 200,35 Q170,50 150,30" fill="#93a881"/>
+            <path d="M600,40 Q630,20 650,45 Q620,60 600,40" fill="#93a881"/>
+            <path d="M320,25 Q340,-5 370,15 Q340,35 320,25" fill="#798e67"/>
+            
+            
+            <circle cx="400" cy="45" r="55" fill="#d26d7c" opacity="0.85"/>
+            <circle cx="415" cy="35" r="45" fill="#e28493"/>
+            <circle cx="390" cy="50" r="40" fill="#eca1ad"/>
+            <circle cx="405" cy="45" r="25" fill="#f5c2ca"/>
+            <circle cx="400" cy="42" r="12" fill="#fce2e6"/>
+            
+            
+            <path d="M260,45 C230,15 210,50 260,65 C310,50 290,15 260,45 Z" fill="#eb9ca7"/>
+            <path d="M260,45 C240,25 230,55 260,60 Z" fill="#fbc3cb"/>
+            <circle cx="260" cy="48" r="6" fill="#e9d397"/>
+
+            
+            <path d="M540,50 C510,20 490,55 540,70 C590,55 570,20 540,50 Z" fill="#e593a0"/>
+            <path d="M540,50 C520,30 510,60 540,65 Z" fill="#fbc3cb"/>
+            <circle cx="540" cy="53" r="6" fill="#e9d397"/>
+            
+            <circle cx="120" cy="45" r="14" fill="#e0a370" opacity="0.9"/>
+            <circle cx="120" cy="45" r="7" fill="#f7cd99"/>
+            <circle cx="680" cy="55" r="16" fill="#dda0dd" opacity="0.8"/>
+            <circle cx="310" cy="65" r="10" fill="#ebd27b"/>
+            <circle cx="490" cy="65" r="12" fill="#ebd27b"/>
+        </svg>
+
+        <svg class="flower-cluster flower-left" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            <path d="M-20,50 Q160,180 10,350" stroke="#6b8059" stroke-width="3" fill="none"/>
+            <path d="M20,120 Q50,100 60,130 Q30,150 20,120" fill="#889e74"/>
+            <path d="M40,240 Q80,250 65,280 Q30,260 40,240" fill="#6b8059"/>
+            
+           
+            <circle cx="45" cy="180" r="75" fill="#c95a6c" opacity="0.8"/>
+            <circle cx="60" cy="185" r="60" fill="#dc7c8d"/>
+            <circle cx="35" cy="170" r="50" fill="#ea9ca9"/>
+            <circle cx="50" cy="175" r="35" fill="#f3bdc6"/>
+            <circle cx="45" cy="175" r="15" fill="#ebd59b"/>
+
+           
+            <circle cx="105" cy="110" r="25" fill="#dd8392"/>
+            <circle cx="105" cy="110" r="15" fill="#f0b1bc"/>
+            <circle cx="92" cy="270" r="30" fill="#e09267"/>
+            <circle cx="92" cy="270" r="15" fill="#f4ce9f"/>
+        </svg>
+
+        
+        <svg class="flower-cluster flower-bottom-right" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Aliran Dahan Estetik Menjalar Naik -->
+            <path d="M450,420 Q200,350 280,100" stroke="#798e67" stroke-width="3" fill="none"/>
+            <path d="M260,180 Q230,190 245,160 Q280,150 260,180" fill="#93a881"/>
+            
+            
+            <circle cx="280" cy="300" r="85" fill="#cc6677" opacity="0.85"/>
+            <circle cx="265" cy="290" r="70" fill="#de8595"/>
+            <circle cx="290" cy="310" r="55" fill="#eba4b2"/>
+            <circle cx="275" cy="295" r="35" fill="#f7ccd5"/>
+            <circle cx="280" cy="300" r="15" fill="#f5de7a"/>
+
+            
+            <path d="M260,110 C210,90 230,40 280,70 C330,40 350,90 300,110 Z" fill="#e59758" opacity="0.9"/>
+            <path d="M275,90 C250,80 260,60 280,75 Z" fill="#f2be8a"/>
+            <circle cx="282" cy="80" r="6" fill="#be5545"/>
+            
+            
+            <circle cx="170" cy="240" r="18" fill="#b19cd9"/>
+            <circle cx="170" cy="240" r="6" fill="#fff5aa"/>
+            <circle cx="200" cy="350" r="15" fill="#b19cd9"/>
+        </svg>
+    </div>
+
+    
+    <section class="hero">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="work.html">Work Experience</a></li> 
+                <li><a href="education.html">Education</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Hi,<br>I'm KHAIRUNNABILAH.</h1> 
+            <p>HI THERE, I'M NABILAH! WELCOME TO MY OFFICIAL PORTFOLIO. HERE, YOU’LL FIND A GLIMPSE OF MY LIFE, MY PASSION FOR PHOTOGRAPHY, AND EVERYTHING IN BETWEEN. HAVE A GOOD TIME LOOKING AROUND!</p>
+        </div>
+    </section>
+
+</body>
+</html>

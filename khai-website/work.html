@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience - Khairunnabilah</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,400;0,700;1,400&family=Poppins:wght=400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fbe394; 
+            color: #1a1a1a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* --- NAVBAR --- */
+        .navbar { 
+            margin-bottom: 60px; 
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .nav-links { 
+            list-style: none; 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        
+        .nav-links li a {
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase;
+            color: #ffffff; 
+            background-color: #ce2a2b; 
+            padding: 12px 30px; 
+            border-radius: 50px;
+            box-shadow: 0px 6px 12px rgba(206, 42, 43, 0.3); 
+            display: inline-block; 
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links li a:hover { 
+            background-color: #b32021; 
+            transform: translateY(-3px); 
+            box-shadow: 0px 8px 16px rgba(206, 42, 43, 0.4);
+        }
+        
+        
+        .floral-bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .flower-cluster {
+            position: absolute;
+            display: block;
+        }
+
+        
+        .flower-top {
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            min-width: 600px;
+            height: auto;
+        }
+
+        .flower-left {
+            top: 25%;
+            left: -50px;
+            width: 300px;
+            height: auto;
+        }
+
+        .flower-bottom-right {
+            bottom: 0px;
+            right: 0px;
+            width: 380px;
+            height: auto;
+        }
+
+        
+        .container {
+            max-width: 850px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 5; 
+        }
+        
+        .container h1 { 
+            font-family: 'Playfair Display', serif;
+            color: #ce2a2b; 
+            font-size: 3rem; 
+            font-weight: bold;
+            margin-bottom: 50px; 
+            letter-spacing: 1px;
+            text-align: center;
+            text-shadow: 2px 2px 0px #fbe394;
+        }
+        
+        .timeline {
+            position: relative;
+            width: 100%;
+            padding-left: 30px; 
+            border-left: 3px dashed #ce2a2b; 
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .job-card { 
+            background-color: rgba(255, 255, 255, 0.95); 
+            border: 2px solid #ce2a2b; 
+            box-shadow: 5px 6px 0px #ce2a2b; 
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(4px);
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 8px 10px 0px #ce2a2b;
+        }
+        
+        .job-card::before {
+            content: "";
+            position: absolute;
+            left: -43px; 
+            top: 35px;
+            width: 18px;
+            height: 18px;
+            background-color: #fbe394;
+            border: 3px solid #ce2a2b;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        .job-card h3 { 
+            color: #ce2a2b; 
+            font-size: 22px; 
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .job-card .company { 
+            font-weight: 700; 
+            font-size: 13px; 
+            color: #ffffff; 
+            background-color: #ce2a2b; 
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .job-card p { 
+            font-size: 14px; 
+            line-height: 1.7; 
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .job-card ul {
+            list-style-type: none;
+        }
+
+        .job-card ul li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #333333;
+            font-weight: 500;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        .job-card ul li::before {
+            content: "•";
+            color: #ce2a2b;
+            font-weight: bold;
+            font-size: 18px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        
+       
+        @media (max-width: 768px) {
+            .navbar { width: 95%; margin-bottom: 40px; }
+            .nav-links { gap: 8px; }
+            .nav-links li a { font-size: 11px; padding: 8px 14px; }
+            .container h1 { font-size: 2.2rem; margin-bottom: 35px; }
+            .timeline { padding-left: 20px; }
+            .job-card { padding: 20px; }
+            .job-card::before { left: -31px; width: 14px; height: 14px; top: 25px; }
+            .job-card h3 { font-size: 18px; }
+
+           
+            .flower-top { width: 100%; top: 0px; }
+            .flower-left { width: 150px; left: -30px; opacity: 0.5; }
+            .flower-bottom-right { width: 180px; opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="floral-bg-layer">
+        
+        
+        <svg class="flower-cluster flower-top" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 Q 400 -10, 750 20" stroke="#798e67" stroke-width="5" fill="none"/>
+            <path d="M200 15 Q 220 0, 240 20 Q 210 30, 200 15" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M550 20 Q 570 5, 590 25 Q 560 35, 550 20" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <path d="M400 5 C 360 5, 350 45, 400 55 C 450 45, 440 5, 400 5 Z" fill="#d26d7c" stroke="#ce2a2b" stroke-width="2"/>
+            <path d="M400 15 C 380 15, 375 40, 400 45 C 425 40, 420 15, 400 15 Z" fill="#eca1ad" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="400" cy="30" r="8" fill="#ebd27b" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="310" cy="35" r="22" fill="#eb9ca7" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="310" cy="35" r="10" fill="#fbc3cb"/>
+            <circle cx="490" cy="35" r="22" fill="#e593a0" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="490" cy="35" r="10" fill="#fbc3cb"/>
+        </svg>
+
+        
+        <svg class="flower-cluster flower-left" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+            <path d="M -10 50 Q 120 150, 0 280" stroke="#798e67" stroke-width="4" fill="none"/>
+            <path d="M 40 100 Q 80 90, 60 120 Z" fill="#93a881" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="45" fill="#c95a6c" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="40" cy="160" r="30" fill="#dc7c8d" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="40" cy="160" r="15" fill="#ebd59b" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="70" cy="220" r="15" fill="#e09267" stroke="#ce2a2b" stroke-width="1.5"/>
+        </svg>
+
+        
+        <svg class="flower-cluster flower-bottom-right" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 260 260 Q 120 180, 180 0" stroke="#798e67" stroke-width="4" fill="none"/>
+            <circle cx="170" cy="160" r="50" fill="#cc6677" stroke="#ce2a2b" stroke-width="2.5"/>
+            <circle cx="170" cy="160" r="35" fill="#de8595" stroke="#ce2a2b" stroke-width="1.5"/>
+            <circle cx="170" cy="160" r="15" fill="#f5de7a" stroke="#ce2a2b" stroke-width="1"/>
+            <circle cx="120" cy="80" r="25" fill="#e59758" stroke="#ce2a2b" stroke-width="2"/>
+            <circle cx="120" cy="80" r="10" fill="#f2be8a"/>
+        </svg>
+    </div>
+
+    
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="work.html">Work Experience</a></li> 
+            <li><a href="education.html">Education</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Work Experience</h1>
+        
+        <div class="timeline">
+            
+            <div class="job-card">
+                <h3>Management Information (Internship)</h3>
+                <div class="company">MAJLIS PERBANDARAN ALOR GAJAH (MPAG) | 9 FEBRUARY 2026 - 3 APRIL 2026</div>
+                <p>Actively involved in assisting corporate information management, corporate archiving, and optimizing digital filing systems. Contributed to improving public service efficiency by managing institutional records and ensuring seamless database organization during the internship period.</p>
+            </div>
+
+            <div class="job-card">
+                <h3>Cashier (Part-time)</h3>
+                <div class="company">99 SPEEDMART | SEMESTER BREAK</div>
+                <ul>
+                    <li>Worked during semester break.</li>
+                    <li>Handled cashier duties including customer billing and payment.</li>
+                    <li>Managed stock, arranged shelves, and maintained store cleanliness.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <h3>Shop Assistant (Part-time)</h3>
+                <div class="company">MINI SHOP | SEMESTER BREAK</div>
+                <ul>
+                    <li>Worked during semester breaks.</li>
+                    <li>Assisted customers, handled cashier tasks, and restocked items.</li>
+                    <li>Ensured product arrangement and store organisation.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <h3>Promoter (Part-time)</h3>
+                <div class="company">RETAIL STORE | SEMESTER BREAK</div>
+                <ul>
+                    <li>Worked during semester break.</li>
+                    <li>Promoted assigned products and assisted customers' enquiries.</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
