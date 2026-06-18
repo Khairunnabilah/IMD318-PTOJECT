@@ -27,7 +27,7 @@
             position: relative;
         }
         
-        /* --- NAVBAR --- */
+      
         .navbar { 
             margin-bottom: 50px; 
             position: relative;
@@ -62,7 +62,6 @@
             box-shadow: 0px 8px 16px rgba(206, 42, 43, 0.4);
         }
         
-        
         .floral-bg-layer {
             position: fixed; 
             left: 0;
@@ -78,7 +77,6 @@
             display: block;
         }
 
-        
         .flower-top {
             top: 0px;
             left: 50%;
@@ -88,7 +86,6 @@
             height: auto;
         }
 
-       
         .flower-left {
             top: 25%;
             left: -50px;
@@ -96,14 +93,12 @@
             height: auto;
         }
 
-        
         .flower-bottom-right {
             bottom: 0px;
             right: 0px;
             width: 380px;
             height: auto;
         }
-        
         
         .container {
             max-width: 950px;
@@ -129,7 +124,6 @@
             gap: 35px;
         }
         
-       
         .edu-card {
             background-color: rgba(255, 255, 255, 0.95);
             border: 2px solid #ce2a2b;
@@ -194,6 +188,14 @@
             z-index: 10;
         }
 
+       
+        .edu-photo-frame a {
+            display: block;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+        }
+
         .edu-card:nth-child(even) .edu-photo-frame {
             transform: rotate(-2deg);
         }
@@ -228,7 +230,7 @@
             cursor: zoom-out;
         }
         
-        /* --- RESPONSIVE MOBILE --- */
+       
         @media (max-width: 768px) {
             .navbar { width: 95%; margin-bottom: 30px; }
             .nav-links { gap: 8px; }
@@ -238,8 +240,7 @@
             .edu-photo-frame { transform: rotate(0deg) !important; width: 130px; }
             .edu-photo-frame img { width: 112px; height: 112px; }
 
-            /* Skala bunga dikecilkan untuk paparan telefon */
-            .flower-top { width: 100%; top: 0px; }
+           
             .flower-left { width: 150px; left: -30px; opacity: 0.5; }
             .flower-bottom-right { width: 180px; opacity: 0.5; }
         }
@@ -303,7 +304,9 @@
                     <div class="year">2024 - Present</div>
                 </div>
                 <div class="edu-photo-frame">
-                    <img src="media/logo uitm.png" alt="UiTM Segamat">
+                    <a href="https://segamat.uitm.edu.my/" target="_blank" title="Layari Laman Web Rasmi UiTM Segamat">
+                        <img src="media/logo uitm.png" alt="UiTM Segamat">
+                    </a>
                     <div class="photo-tag">UiTM Segamat</div>
                 </div>
             </div>
@@ -315,7 +318,9 @@
                     <div class="year">2023</div>
                 </div>
                 <div class="edu-photo-frame">
-                    <img src="media/logo uitm.png" alt="UiTM Lendu">
+                    <a href="https://melaka.uitm.edu.my/" target="_blank" title="Layari Laman Web Rasmi UiTM Lendu">
+                        <img src="media/logo uitm.png" alt="UiTM Lendu">
+                    </a>
                     <div class="photo-tag">UiTM Lendu</div>
                 </div>
             </div>
@@ -327,7 +332,9 @@
                     <div class="year">2018 - 2022</div>
                 </div>
                 <div class="edu-photo-frame">
-                    <img src="media/logo smk.jpg" alt="SMK Selandar">
+                    <a href="https://www.facebook.com/SMKSelandarMelaka/" target="_blank" title="Layari Laman Sosial SMK Selandar">
+                        <img src="media/logo smk.jpg" alt="SMK Selandar">
+                    </a>
                     <div class="photo-tag">SMK Selandar</div>
                 </div>
             </div>
@@ -339,7 +346,9 @@
                     <div class="year">2011 - 2017</div>
                 </div>
                 <div class="edu-photo-frame">
-                    <img src="media/logo sk.png" alt="SK Serti Machap">
+                    <a href="https://www.facebook.com/p/Sk-Serti-Machap-100057577543940/" target="_blank" title="Layari Laman Sosial SK Serti Machap">
+                        <img src="media/logo sk.png" alt="SK Serti Machap">
+                    </a>
                     <div class="photo-tag">SK Serti Machap</div>
                 </div>
             </div>
@@ -350,12 +359,15 @@
     <script>
         const photoFrames = document.querySelectorAll('.edu-photo-frame');
         photoFrames.forEach((frame) => {
-            frame.addEventListener('click', function() {
-                if (this.classList.contains('active-zoom')) {
-                    this.classList.remove('active-zoom');
-                } else {                    
-                    photoFrames.forEach(item => item.classList.remove('active-zoom'));
-                    this.classList.add('active-zoom');
+            frame.addEventListener('click', function(e) {
+               
+                if (e.target.tagName === 'IMG' || e.target.classList.contains('photo-tag')) {
+                    if (this.classList.contains('active-zoom')) {
+                        this.classList.remove('active-zoom');
+                    } else {                    
+                        photoFrames.forEach(item => item.classList.remove('active-zoom'));
+                        this.classList.add('active-zoom');
+                    }
                 }
             });
         });
